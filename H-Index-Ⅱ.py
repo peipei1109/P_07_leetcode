@@ -8,9 +8,11 @@ class Solution(object):
         :type citations: List[int]
         :rtype: int
         """
+        if len(citations)==0:
+            return 0
         citations=sorted(citations)
         length=len(citations)
-        left=0;right=length
+        left=0;right=length-1 #这里要为length-1，否则，当citations 里面全是0时会出现Index out of range
         
         while(left<=right):
             mid=(left+right)/2
@@ -28,6 +30,6 @@ class Solution(object):
         
 if __name__=="__main__":
     obj=Solution()
-    print obj.hIndex([0,1,3,4,5,5])
+    print obj.hIndex([0,1,2,3,5,5])
     
     
